@@ -287,20 +287,10 @@ for msg in st.session_state.chat_history:
     else:
         bubble_class = "bot-bubble"
     chat_html += f'<div class="chat-message"><div class="{bubble_class}">{msg["content"]}</div></div>'
-chat_html += '<div id="end-of-chat"></div></div></div>'
+chat_html += '</div></div>'
 st.markdown(chat_html, unsafe_allow_html=True)
 
-st.markdown(
-    """
-    <script>
-    var elem = document.getElementById('end-of-chat');
-    if (elem) {
-        elem.scrollIntoView({behavior: "smooth", block: "end"});
-    }
-    </script>
-    """,
-    unsafe_allow_html=True
-)
+
 
 with st.form(key="chat_form", clear_on_submit=True):
     cols = st.columns([10, 1], gap="small")
