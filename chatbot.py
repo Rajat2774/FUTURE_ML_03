@@ -41,7 +41,7 @@ st.markdown("""
 body, .stApp {
     background-color: #8cc8ed !important; 
 }
-# header, footer {visibility: hidden;}
+header, footer {visibility: hidden;}
 .block-container {
     max-width: 1200px !important;  
     padding-left: 1rem;
