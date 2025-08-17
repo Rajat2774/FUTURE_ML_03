@@ -45,7 +45,7 @@ header, footer {visibility: hidden;}
 .block-container {
     max-width: 1200px !important;
     padding-top:1rem !important;
-    margin-top: -3rem !important;  
+    margin-top: -2rem !important;  
     padding-left: 1rem;
     padding-right: 1rem;
     margin: auto;
