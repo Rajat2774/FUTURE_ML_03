@@ -117,7 +117,7 @@ header, footer {visibility: hidden;}
     border-radius: 15px;
     max-width: 75%;
     color:black;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08)
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
     margin: 5px 0;
     align-self: flex-start;
 }
@@ -287,23 +287,20 @@ for msg in st.session_state.chat_history:
     else:
         bubble_class = "bot-bubble"
     chat_html += f'<div class="chat-message"><div class="{bubble_class}">{msg["content"]}</div></div>'
-chat_html += '</div>'
-
+chat_html += '<div id="end-of-chat"></div></div></div>'
 st.markdown(chat_html, unsafe_allow_html=True)
 
-st.markdown("""
-<script>
-setTimeout(function() {
-    var chatBox = document.getElementById('chat-messages');
-    if (chatBox) {
-        chatBox.scrollTop = chatBox.scrollHeight;
-        console.log("Autoscroll ran!");
-    } else {
-        console.log("Chat box not found!");
+st.markdown(
+    """
+    <script>
+    var elem = document.getElementById('end-of-chat');
+    if (elem) {
+        elem.scrollIntoView({behavior: "smooth", block: "end"});
     }
-}, 100);
-</script>
-""", unsafe_allow_html=True)
+    </script>
+    """,
+    unsafe_allow_html=True
+)
 
 with st.form(key="chat_form", clear_on_submit=True):
     cols = st.columns([10, 1], gap="small")
@@ -348,4 +345,4 @@ if send_clicked and user_input.strip():
     })
     st.rerun()
 
-st.markdown('</div>', unsafe_allow_html=True)
+
